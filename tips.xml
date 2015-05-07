@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tips>
+	<category>
+		<c_title>Basic Computer Tips</c_title>
+		<c_id>basic</c_id>			
+			<tip>
+				<t_id>1</t_id>
+				<t_label>Full Screen Mode</t_label>
+				<t_title>Full Screen Mode</t_title>
+				<imgsrc>alt-tab.png</imgsrc>
+			</tip>
+			<tip>
+				<t_id>4</t_id>
+				<t_label>Cell Phone Send Key</t_label>
+				<t_title>Cell Phone Send Key</t_title>
+				<imgsrc>cellphonesend.png</imgsrc>
+			</tip>
+	</category>
+	<category>
+		<c_title>Internet Searching</c_title>
+		<c_id>internet</c_id>
+			<tip>
+				<t_id>2</t_id>
+				<t_label>Browser Text Size</t_label>
+				<t_title>Browser Text Size</t_title>
+				<imgsrc>browsertextsize.png</imgsrc>
+			</tip>
+			<tip>
+				<t_id>5</t_id>
+				<t_label>Select All Contents</t_label>
+				<t_title>Select All Contents</t_title>
+				<imgsrc>ctrla.png</imgsrc>
+			</tip>
+			<tip>
+				<t_id>6</t_id>
+				<t_label>Searching in Browser</t_label>
+				<t_title>Searching in Browser</t_title>
+				<imgsrc>ctrlf.png</imgsrc>
+			</tip>
+			<tip>
+				<t_id>7</t_id>
+				<t_label>Open New Browser</t_label>
+				<t_title>Open New Browser</t_title>
+				<imgsrc>ctrln.png</imgsrc>
+			</tip>
+			<tip>
+				<t_id>10</t_id>
+				<t_label>.com Address</t_label>
+				<t_title>.com Address</t_title>
+				<imgsrc>dotcomaddress.png</imgsrc>
+			</tip>
+	</category>
+	<category>
+		<c_title>Windows Tips</c_title>
+		<c_id>windows</c_id>			
+	</category>
+	<category>
+		<c_title>Microsoft Word</c_title>
+		<c_id>word</c_id>
+			<tip>
+				<t_id>8</t_id>
+				<t_label>Save a File</t_label>
+				<t_title>Save a File</t_title>
+				<imgsrc>ctrls.png</imgsrc>
+			</tip>		
+	</category>
+	<category>
+		<c_title>Social Media</c_title>
+		<c_id>social</c_id>			
+	</category>
+	<category>
+		<c_title>Library Resources</c_title>
+		<c_id>library</c_id>
+			<tip>
+				<t_id>3</t_id>
+				<t_label>Browse Library Catalog</t_label>
+				<t_title>Browse Library Catalog</t_title>
+				<imgsrc>catalogbrowse.png</imgsrc>
+			</tip>
+			<tip>
+				<t_id>9</t_id>
+				<t_label>Cypress Resume</t_label>
+				<t_title>Cypress Resume</t_title>
+				<imgsrc>cypressresume.png</imgsrc>
+			</tip>	
+			<tip>
+				<t_id>11</t_id>
+				<t_label>Overdrive eBook</t_label>
+				<t_title>eBook from Overdrive</t_title>
+				<imgsrc>ebookformat.png</imgsrc>
+			</tip>
+			<tip>
+				<t_id>12</t_id>
+				<t_label>ed2go Courses</t_label>
+				<t_title>ed2go Courses</t_title>
+				<imgsrc>ed2go.png</imgsrc>
+			</tip>	
+	</category>
+</tips>

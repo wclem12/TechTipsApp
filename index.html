@@ -1,0 +1,112 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tech Tips App</title>
+<link href="jquery-mobile/jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="styles/custom.css" rel="stylesheet" type="text/css">
+<script src="jquery-mobile/jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript"></script>
+<!-- utilizing jqm.page.params.js in order to pass parameters between pages -->
+<script src="https://raw.github.com/jblas/jquery-mobile-plugins/35fcf54e2af380aa0e98e9f384572b02f58a1ea1/page-params/jqm.page.params.js"></script>
+      
+<script>
+	//uses jqm.page.params to pass img src and page title to the selected page as parameters
+	$("#selected").live('pageshow', function(e) {
+			$('#selected_tip').attr('src', 'http://googledrive.com/host/0B5YCZGEDsqNJOW5idUNMUXZwNEU/' + $.mobile.pageData.tip);
+			$('#title').text($.mobile.pageData.title);
+    });    
+	
+	$(document).bind("pagebeforechange", function( event, data ) {
+    	$.mobile.pageData = (data && data.options && data.options.pageData)
+        	? data.options.pageData
+            : null;
+    });
+</script>
+<script type="text/javascript">
+	//parses xml into document
+	$(document).ready(function(){
+		$.ajax({
+			type: "GET",
+			url: "http://googledrive.com/host/0B5YCZGEDsqNJOW5idUNMUXZwNEU/tips.xml",
+			dataType: "xml",
+			success: parseCategory
+		});
+	});
+	
+	function parseCategory(xml){		
+		$(xml).find('category').each(function(){					                 
+			var newCollapsible = document.createElement("div");
+			newCollapsible.setAttribute('data-role', 'collapsible');
+				   
+			var category_id = $(this).find('c_id').text();
+			newCollapsible.setAttribute('id', category_id);
+				   
+			var category_title = $(this).find('c_title').text();
+			
+			var tips = "";
+			$(this).find('tip').each(function() {				
+				var tip_id = $(this).find('t_id:first').text();
+				var tip_label = $(this).find('t_label:first').text();
+				var tip_title = $(this).find('t_title:first').text();
+				var tip_src = $(this).find('imgsrc:first').text();
+				
+				var ref = "#selected?title=" + tip_title + "&tip=" + tip_src;
+				
+				tips = tips + "<li><a id='" + tip_id + "' href='" + ref + "'>" + tip_label + "</a></li>";
+			});
+			
+			newCollapsible.innerHTML = "<h4>" + category_title + "</h4><ul data-role='listview'>" + tips + "</ul>";
+			
+			$('#category_set').append(newCollapsible);		
+		});		
+		
+		$('div[data-role="collapsible"]').collapsible();
+		$('ul[data-role="listview"]').listview();
+	}
+</script>
+
+</head> 
+<body> 
+
+<div data-role="page" id="page" data-theme="a">
+	<div data-role="header">
+        <h1>Tech Tips</h1>
+	</div>
+    
+     <div data-role="content">
+    	<table align="center">
+        	<tr>
+            	<td rowspan="2"><img src="images/welcome_screen.png" alt="welcome" height="198" width="139"></td>
+                <td><p align="center" style="font-size:20px;">Welcome to the Muncie Public Library Tech Tips App.</p></td>
+            </tr>
+            <tr>
+            	<td><p align="center">To get started, choose a category and then select a tip.</p></td>	
+            </tr>
+        </table>
+    </div>
+    
+	<div data-role="content">
+    	<div data-role="collapsible-set" id="category_set">
+       	</div>
+    </div>
+    
+	<div data-role="footer">
+		<h4>Muncie Public Library &copy;</h4>
+	</div>
+</div>
+
+
+<div data-role="page" id="selected" data-theme="a">
+	<div data-role="header">
+    	<a href="index.html" data-icon="back" data-direction="reverse">Back</a>
+		<h1 id="title"></h1>
+	</div>
+    <img id="selected_tip" style="left:0px"> 
+	<div data-role="footer">
+		<h4>Muncie Public Library &copy;</h4>
+	</div>
+</div>
+
+</body>
+</html>
